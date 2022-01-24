@@ -22,6 +22,7 @@ class ExposureCalculator:
 
     def calculate_uncontrolled_safe_distance( self, freq_values, xmtr_power, feedline_loss_100, feedline_length, duty_cycle, uncontrolled_percentage_30):
         gamma = self.__calculate_reflection_coefficient( freq_values )
+        
         matched_load_fraction = self.__get_matched_load_fraction( feedline_length, feedline_loss_100 )
 
         gamma_squared = abs(gamma)**2
@@ -33,7 +34,6 @@ class ExposureCalculator:
         feed_line_loss = -10 * math.log10( matched_load_fraction * (one_minus_gamma_squared/denominator) )
 
         loss_percentage = (100 - 100/(10**(feed_line_loss/10)))/100
-
 
         power_loss = loss_percentage * xmtr_power
 
