@@ -3,7 +3,7 @@ from exposure_calcuator import *
 def main():
     c1 = CableValues(0.122290, 0.000260)  #for LMR-400
     xmtr_power = 1000
-    feed_line_length = 113
+    feed_line_length = 73
     duty_cycle = .5
     per_30 = .5
 
