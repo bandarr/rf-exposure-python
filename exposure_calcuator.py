@@ -10,7 +10,7 @@ class FrequencyValues:
         self.gaindbi = gaindbi
 
 class CableValues:
-    def __init__( self, k1:int, k2:int ):
+    def __init__( self, k1:float, k2:float ):
         self.k1 = k1
         self.k2 = k2
 
