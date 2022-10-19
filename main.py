@@ -13,7 +13,8 @@ def main():
     
     for f in all_freq_values:
         yarg = ec1.calculate_uncontrolled_safe_distance( f, c1, xmtr_power, feed_line_length, duty_cycle, per_30 )
-        print(yarg)
+        format_yarg = "{:.2f}".format(yarg)
+        print(format_yarg)
 
 if __name__ == "__main__":
     main()
