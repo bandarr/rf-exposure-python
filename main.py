@@ -1,7 +1,8 @@
-from exposure_calcuator import *
+from exposure_calcuator import ExposureCalculator, FrequencyValues, CableValues
+
 
 def main():
-    c1 = CableValues(0.122290, 0.000260)  #for LMR-400
+    c1 = CableValues(0.122290, 0.000260)  # for LMR-400
     xmtr_power = 1000
     feed_line_length = 73
     duty_cycle = .5
@@ -9,20 +10,19 @@ def main():
 
     ec1 = ExposureCalculator()
 
-    all_freq_values = [ FrequencyValues(7.3, 2.25, 1.5), FrequencyValues(14.35, 1.35, 1.5), FrequencyValues(18.1, 3.7, 1.5), FrequencyValues(21.45, 4.45, 1.5), FrequencyValues(24.99, 4.1, 1.5), FrequencyValues(29.7, 2.18, 4.5)]
-    
+    all_freq_values = [FrequencyValues(7.3, 2.25, 1.5),
+                       FrequencyValues(14.35, 1.35, 1.5),
+                       FrequencyValues(18.1, 3.7, 1.5),
+                       FrequencyValues(21.45, 4.45, 1.5),
+                       FrequencyValues(24.99, 4.1, 1.5),
+                       FrequencyValues(29.7, 2.18, 4.5)]
+
     for f in all_freq_values:
-        yarg = ec1.calculate_uncontrolled_safe_distance( f, c1, xmtr_power, feed_line_length, duty_cycle, per_30 )
+        yarg = ec1.calculate_uncontrolled_safe_distance(
+            f, c1, xmtr_power, feed_line_length, duty_cycle, per_30)
         format_yarg = "{:.2f}".format(yarg)
         print(format_yarg)
 
+
 if __name__ == "__main__":
     main()
-
-
-
-
-
-
-
-
